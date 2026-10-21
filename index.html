@@ -1,0 +1,112 @@
+<!doctype html>
+<html lang="ru">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="theme-color" content="#f6f5f0">
+<title>Домашний бюджет</title>
+<style>
+:root{--bg:#f6f5f0;--paper:#fff;--ink:#202922;--muted:#778078;--line:#e8ebe5;--green:#2f6b50;--green-light:#e8f1e9;--red:#bc5947;--red-light:#fbefec;--gold:#d4a24c;--shadow:0 8px 30px rgba(35,52,39,.055)}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--ink);font:15px/1.5 system-ui,-apple-system,"Segoe UI",sans-serif}button,input,select{font:inherit}button{cursor:pointer}.shell{max-width:1160px;margin:auto;padding:34px 28px 56px}.topbar{display:flex;justify-content:space-between;align-items:center;margin-bottom:30px}.brand{display:flex;gap:12px;align-items:center;font-weight:750;font-size:19px;letter-spacing:-.4px}.brand-mark{display:grid;place-items:center;width:40px;height:40px;border-radius:13px;background:var(--green);color:white;font-size:20px}.eyebrow{color:var(--muted);font-size:12px;letter-spacing:.08em;text-transform:uppercase;font-weight:700}.top-actions{display:flex;gap:10px}.btn-quiet{background:transparent;border:1px solid var(--line);color:#59645b;padding:9px 13px;border-radius:10px;font-weight:600}.btn-quiet:hover{background:white}.intro{display:flex;justify-content:space-between;align-items:end;margin-bottom:22px}.intro h1{font-size:30px;line-height:1.15;letter-spacing:-1px;margin:5px 0 0}.month-picker{display:flex;align-items:center;gap:10px;background:white;border:1px solid var(--line);padding:8px 12px;border-radius:11px;color:var(--muted)}.month-picker input{border:0;background:transparent;color:var(--ink);font-weight:650;outline:0}.summary{display:grid;grid-template-columns:repeat(3,1fr);gap:16px;margin-bottom:22px}.metric{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:19px 21px;box-shadow:var(--shadow)}.metric-top{display:flex;align-items:center;justify-content:space-between;color:var(--muted);font-size:13px;font-weight:600}.metric-icon{width:31px;height:31px;border-radius:10px;display:grid;place-items:center;font-size:16px}.metric:nth-child(1) .metric-icon{background:var(--green-light);color:var(--green)}.metric:nth-child(2) .metric-icon{background:var(--red-light);color:var(--red)}.metric:nth-child(3) .metric-icon{background:#f5f0e5;color:#9c793d}.metric-value{font-size:27px;letter-spacing:-.8px;font-weight:750;margin-top:13px}.metric-note{color:var(--muted);font-size:12px;margin-top:2px}.layout{display:grid;grid-template-columns:minmax(0,1.55fr) minmax(300px,.85fr);gap:18px;align-items:start}.panel{background:var(--paper);border:1px solid var(--line);border-radius:17px;padding:21px;box-shadow:var(--shadow)}.panel-head{display:flex;align-items:center;justify-content:space-between;margin-bottom:17px}.panel h2{font-size:17px;letter-spacing:-.3px;margin:0}.subtle{font-size:12px;color:var(--muted)}.forms{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:18px}.form-panel{padding:18px}.form-title{display:flex;align-items:center;gap:9px;margin-bottom:14px;font-weight:700}.form-title span{display:grid;place-items:center;width:27px;height:27px;border-radius:9px}.income .form-title span{background:var(--green-light);color:var(--green)}.expense .form-title span{background:var(--red-light);color:var(--red)}.field{margin-bottom:11px}.field label{display:block;font-size:12px;font-weight:650;color:#606b62;margin-bottom:5px}.field input,.field select{width:100%;height:40px;border:1px solid #e4e8e2;border-radius:9px;padding:0 11px;background:#fff;color:var(--ink);outline:none}.field input:focus,.field select:focus{border-color:#7fa48a;box-shadow:0 0 0 3px #eaf2eb}.two-fields{display:grid;grid-template-columns:1fr 1fr;gap:9px}.submit{width:100%;height:41px;border:0;border-radius:10px;color:white;font-weight:700}.income .submit{background:var(--green)}.expense .submit{background:#a45c4d}.submit:hover{filter:brightness(.95)}.error{font-size:12px;color:var(--red);min-height:17px;margin-top:5px}.transactions{margin-top:0}.filter-note{font-size:12px;color:var(--muted)}.transaction-list{display:flex;flex-direction:column}.transaction{display:grid;grid-template-columns:42px minmax(0,1fr) auto 30px;gap:12px;align-items:center;padding:13px 0;border-top:1px solid #f0f1ee}.tx-icon{width:39px;height:39px;border-radius:12px;background:#f2f4f0;display:grid;place-items:center;font-size:17px}.tx-name{font-weight:650;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}.tx-meta{font-size:12px;color:var(--muted);margin-top:2px}.tx-amount{font-weight:750;white-space:nowrap}.tx-amount.income{color:var(--green)}.tx-amount.expense{color:var(--ink)}.delete{border:0;background:transparent;color:#a3aaa3;border-radius:7px;font-size:18px;width:30px;height:30px}.delete:hover{background:var(--red-light);color:var(--red)}.empty{padding:25px 10px;text-align:center;color:var(--muted);font-size:13px}.goal{margin-top:18px}.goal-top{display:flex;justify-content:space-between;align-items:start}.goal-title{font-weight:700;font-size:17px}.goal-name{font-size:13px;color:var(--muted);margin-top:3px}.edit-goal{border:1px solid var(--line);background:white;color:#58645a;padding:7px 10px;border-radius:9px;font-size:12px;font-weight:650}.goal-numbers{display:flex;justify-content:space-between;align-items:end;margin:20px 0 9px}.goal-current{font-size:22px;font-weight:750;letter-spacing:-.5px}.goal-target{font-size:12px;color:var(--muted)}.progress{height:9px;background:#edf0eb;border-radius:10px;overflow:hidden}.progress-fill{height:100%;width:0;background:var(--green);border-radius:10px;transition:width .3s}.goal-foot{display:flex;justify-content:space-between;color:var(--muted);font-size:12px;margin-top:9px}.goal-foot strong{color:var(--green)}.save-percent{width:100%;margin-top:15px;padding:10px 12px;border:1px solid #dce8dd;border-radius:10px;background:var(--green-light);color:var(--green);font-weight:700}.save-percent:hover{background:#dcebdd}.goal-edit-fields{margin-top:14px;padding-top:13px;border-top:1px solid var(--line)}.goal-edit-fields[hidden]{display:none}.goal-save{background:var(--green);color:white;border:0;border-radius:9px;padding:9px 14px;font-weight:700}.toast{position:fixed;left:50%;bottom:22px;transform:translate(-50%,20px);background:#26352b;color:white;padding:11px 16px;border-radius:11px;box-shadow:var(--shadow);opacity:0;pointer-events:none;transition:.2s;z-index:5}.toast.show{opacity:1;transform:translate(-50%,0)}
+@media(max-width:800px){.layout{grid-template-columns:1fr}.summary{gap:10px}.metric{padding:16px}.metric-value{font-size:23px}.right-column{display:grid;grid-template-columns:1fr 1fr;gap:14px}.goal{margin-top:0}}
+@media(max-width:600px){.shell{padding:20px 15px 36px}.topbar{margin-bottom:24px}.top-actions .btn-quiet{padding:8px 9px;font-size:12px}.intro{align-items:start;gap:12px;flex-direction:column;margin-bottom:16px}.intro h1{font-size:26px}.month-picker{align-self:stretch;justify-content:space-between}.summary{grid-template-columns:1fr;gap:9px;margin-bottom:14px}.metric{display:flex;align-items:center;gap:12px;padding:13px 15px}.metric-top{flex:1}.metric-value{font-size:19px;margin:0}.metric-note{display:none}.metric-icon{order:-1}.forms{grid-template-columns:1fr;gap:11px}.panel{padding:17px}.form-panel{padding:16px}.right-column{display:flex;flex-direction:column}.goal{margin-top:0}.transaction{grid-template-columns:38px minmax(0,1fr) auto 27px;gap:8px}.tx-icon{width:36px;height:36px}.tx-amount{font-size:13px}}
+</style>
+</head>
+<body>
+<div class="shell">
+  <header class="topbar"><div class="brand"><div class="brand-mark">↗</div><div>Домашний бюджет<div class="eyebrow" style="letter-spacing:.04em;text-transform:none;font-size:11px;font-weight:500">Спокойно о деньгах</div></div></div><div class="top-actions"><button class="btn-quiet" id="clearBtn" type="button">Очистить данные</button></div></header>
+  <section class="intro"><div><div class="eyebrow">Ваши финансы</div><h1>Бюджет семьи</h1></div><label class="month-picker"><span>Период</span><input id="month" type="month" aria-label="Выберите месяц"></label></section>
+  <section class="summary" aria-label="Сводка за месяц">
+    <article class="metric"><div class="metric-top"><span>Доходы</span><span class="metric-icon">↙</span></div><div><div class="metric-value" id="incomeTotal">0 ₸</div><div class="metric-note">Поступило за месяц</div></div></article>
+    <article class="metric"><div class="metric-top"><span>Расходы</span><span class="metric-icon">↗</span></div><div><div class="metric-value" id="expenseTotal">0 ₸</div><div class="metric-note">Потрачено за месяц</div></div></article>
+    <article class="metric"><div class="metric-top"><span>Остаток</span><span class="metric-icon">◷</span></div><div><div class="metric-value" id="balanceTotal">0 ₸</div><div class="metric-note">Доходы минус расходы</div></div></article>
+  </section>
+  <main class="layout"><div class="left-column">
+    <section class="forms" aria-label="Добавить операцию">
+      <form id="incomeForm" class="panel form-panel income" novalidate><div class="form-title"><span>＋</span>Добавить доход</div><div class="field"><label for="incomeName">Название</label><input id="incomeName" maxlength="80" placeholder="Например, зарплата" required></div><div class="two-fields"><div class="field"><label for="incomeAmount">Сумма, ₸</label><input id="incomeAmount" inputmode="decimal" placeholder="0" required></div><div class="field"><label for="incomeDate">Дата</label><input id="incomeDate" type="date" required></div></div><div class="error" id="incomeError" aria-live="polite"></div><button class="submit" type="submit">Добавить доход</button></form>
+      <form id="expenseForm" class="panel form-panel expense" novalidate><div class="form-title"><span>−</span>Добавить расход</div><div class="field"><label for="expenseName">Название</label><input id="expenseName" maxlength="80" placeholder="Например, покупки в магазине" required></div><div class="two-fields"><div class="field"><label for="expenseAmount">Сумма, ₸</label><input id="expenseAmount" inputmode="decimal" placeholder="0" required></div><div class="field"><label for="expenseDate">Дата</label><input id="expenseDate" type="date" required></div></div><div class="field"><label for="expenseCategory">Категория</label><select id="expenseCategory"><option>Продукты</option><option>Жильё и коммунальные услуги</option><option>Транспорт</option><option>Здоровье</option><option>Дети</option><option>Развлечения</option><option>Прочее</option></select></div><div class="error" id="expenseError" aria-live="polite"></div><button class="submit" type="submit">Добавить расход</button></form>
+    </section>
+    <section class="panel transactions"><div class="panel-head"><h2>Операции</h2><span class="filter-note" id="periodLabel"></span></div><div class="transaction-list" id="transactionList"></div></section>
+  </div><aside class="right-column"><section class="panel goal"><div class="goal-top"><div><div class="goal-title">Цель накопления</div><div class="goal-name" id="goalName"></div></div><button type="button" class="edit-goal" id="editGoal">Изменить</button></div><div class="goal-numbers"><div class="goal-current" id="goalCurrent">0 ₸</div><div class="goal-target" id="goalTarget"></div></div><div class="progress" role="progressbar" aria-label="Прогресс накопления" aria-valuemin="0" aria-valuemax="100"><div class="progress-fill" id="progressFill"></div></div><div class="goal-foot"><span id="goalRemaining"></span><strong id="goalPercent">0%</strong></div><button type="button" class="save-percent" id="savePercent">Внести 30% остатка за месяц</button><form class="goal-edit-fields" id="goalForm" hidden><div class="field"><label for="goalNameInput">Название цели</label><input id="goalNameInput" maxlength="80" placeholder="Например, отпуск"></div><div class="two-fields"><div class="field"><label for="goalAmountInput">Целевая сумма, ₸</label><input id="goalAmountInput" inputmode="decimal" placeholder="0"></div><div class="field"><label for="goalSavedInput">Уже накоплено, ₸</label><input id="goalSavedInput" inputmode="decimal" placeholder="0"></div></div><div class="error" id="goalError" aria-live="polite"></div><button class="goal-save" type="submit">Сохранить цель</button></form></section></aside></main>
+</div><div class="toast" id="toast" role="status" aria-live="polite"></div>
+<script>
+(() => {
+  const KEY = 'familyBudget.v1';
+  const categories = { 'Продукты':'🛒','Жильё и коммунальные услуги':'🏠','Транспорт':'🚗','Здоровье':'💊','Дети':'🧸','Развлечения':'🎈','Прочее':'•' };
+  const today = new Date();
+  const localISO = d => new Date(d.getTime()-d.getTimezoneOffset()*60000).toISOString().slice(0,10);
+  const monthInput = document.getElementById('month');
+  monthInput.value = localISO(today).slice(0,7);
+  document.getElementById('incomeDate').value = localISO(today);
+  document.getElementById('expenseDate').value = localISO(today);
+  let state = loadState();
+  let toastTimer;
+
+  // Читаем сохранённые записи и цель, не доверяя повреждённым данным.
+  function loadState(){
+    try { const saved = JSON.parse(localStorage.getItem(KEY) || '{}'); return { transactions:Array.isArray(saved.transactions)?saved.transactions.filter(x=>x&&typeof x.id==='string'&&['income','expense'].includes(x.type)&&Number.isFinite(x.amount)&&typeof x.date==='string'):[], goal:saved.goal&&typeof saved.goal==='object'?saved.goal:{name:'',target:0,saved:0} }; }
+    catch { return {transactions:[],goal:{name:'',target:0,saved:0}}; }
+  }
+  function persist(){ localStorage.setItem(KEY,JSON.stringify(state)); }
+  function money(value){ return new Intl.NumberFormat('ru-RU',{maximumFractionDigits:2}).format(value)+' ₸'; }
+  function parseAmount(value){ const normalized=value.trim().replace(/\s/g,'').replace(',','.'); if(!/^(?:\d+\.?\d*|\.\d+)$/.test(normalized)) return NaN; return Number(normalized); }
+  function showToast(message){ const el=document.getElementById('toast'); el.textContent=message; el.classList.add('show'); clearTimeout(toastTimer); toastTimer=setTimeout(()=>el.classList.remove('show'),2400); }
+  function formatDate(value){ const [y,m,d]=value.split('-'); return `${d}.${m}.${y}`; }
+
+  // Пересчитываем суммы и список только для выбранного месяца.
+  function render(){
+    const selected=monthInput.value;
+    const items=state.transactions.filter(x=>x.date.slice(0,7)===selected).sort((a,b)=>b.date.localeCompare(a.date)||b.id.localeCompare(a.id));
+    const incomes=items.filter(x=>x.type==='income').reduce((s,x)=>s+x.amount,0);
+    const expenses=items.filter(x=>x.type==='expense').reduce((s,x)=>s+x.amount,0);
+    document.getElementById('incomeTotal').textContent=money(incomes);
+    document.getElementById('expenseTotal').textContent=money(expenses);
+    const balance=document.getElementById('balanceTotal'); balance.textContent=money(incomes-expenses); balance.style.color=incomes-expenses<0?'var(--red)':'var(--ink)';
+    const [year,month]=selected.split('-');
+    document.getElementById('periodLabel').textContent=new Intl.DateTimeFormat('ru-RU',{month:'long',year:'numeric'}).format(new Date(Number(year),Number(month)-1,1));
+    const list=document.getElementById('transactionList'); list.replaceChildren();
+    if(!items.length){ const empty=document.createElement('div'); empty.className='empty'; empty.textContent='За этот месяц операций пока нет. Добавьте доход или расход выше.'; list.append(empty); }
+    for(const item of items){
+      const row=document.createElement('div'); row.className='transaction';
+      const icon=document.createElement('div'); icon.className='tx-icon'; icon.textContent=item.type==='income'?'↙':(categories[item.category]||'•');
+      const desc=document.createElement('div'); const name=document.createElement('div'); name.className='tx-name'; name.textContent=item.name; const meta=document.createElement('div'); meta.className='tx-meta'; meta.textContent=item.type==='income'?`Доход · ${formatDate(item.date)}`:`${item.category} · ${formatDate(item.date)}`; desc.append(name,meta);
+      const amount=document.createElement('div'); amount.className='tx-amount '+item.type; amount.textContent=(item.type==='income'?'+':'−')+money(item.amount);
+      const del=document.createElement('button'); del.className='delete'; del.type='button'; del.setAttribute('aria-label',`Удалить: ${item.name}`); del.title='Удалить операцию'; del.textContent='×'; del.addEventListener('click',()=>{state.transactions=state.transactions.filter(x=>x.id!==item.id);persist();render();showToast('Операция удалена');});
+      row.append(icon,desc,amount,del); list.append(row);
+    }
+    renderGoal();
+  }
+  function renderGoal(){
+    const g=state.goal; const target=Number(g.target)||0; const saved=Number(g.saved)||0; const pct=target>0?Math.min(100,Math.round(saved/target*100)):0;
+    document.getElementById('goalName').textContent=g.name||'Задайте цель, к которой хотите прийти';
+    document.getElementById('goalCurrent').textContent=money(saved);
+    document.getElementById('goalTarget').textContent=target>0?'из '+money(target):'цель не задана';
+    document.getElementById('progressFill').style.width=pct+'%';
+    document.querySelector('.progress').setAttribute('aria-valuenow',String(pct));
+    document.getElementById('goalPercent').textContent=pct+'%';
+    document.getElementById('goalRemaining').textContent=target>0?(saved>=target?'Цель достигнута!':'Осталось '+money(Math.max(0,target-saved))):'Добавьте целевую сумму';
+  }
+  function bindTransactionForm(formId,type){
+    const form=document.getElementById(formId); const prefix=type==='income'?'income':'expense';
+    form.addEventListener('submit',event=>{event.preventDefault(); const name=document.getElementById(prefix+'Name').value.trim(); const amount=parseAmount(document.getElementById(prefix+'Amount').value); const date=document.getElementById(prefix+'Date').value; const error=document.getElementById(prefix+'Error');
+      if(!name){error.textContent='Укажите название операции.';return;} if(!Number.isFinite(amount)||amount<=0){error.textContent='Введите корректную сумму больше нуля.';return;} if(!date){error.textContent='Укажите дату операции.';return;}
+      const item={id:crypto.randomUUID?crypto.randomUUID():String(Date.now())+Math.random(),type,name,amount,date}; if(type==='expense')item.category=document.getElementById('expenseCategory').value;
+      state.transactions.push(item);persist();form.reset();document.getElementById(prefix+'Date').value=localISO(new Date());error.textContent='';render();showToast(type==='income'?'Доход добавлен':'Расход добавлен');
+    });
+    form.addEventListener('input',()=>document.getElementById(prefix+'Error').textContent='');
+  }
+  bindTransactionForm('incomeForm','income'); bindTransactionForm('expenseForm','expense');
+  monthInput.addEventListener('change',render);
+  const goalForm=document.getElementById('goalForm');
+  document.getElementById('editGoal').addEventListener('click',()=>{const open=goalForm.hidden;goalForm.hidden=!open;if(open){document.getElementById('goalNameInput').value=state.goal.name||'';document.getElementById('goalAmountInput').value=state.goal.target||'';document.getElementById('goalSavedInput').value=state.goal.saved||'';document.getElementById('goalNameInput').focus();}});
+  // Переносим 30% положительного остатка в накопления один раз на месяц; повторное нажатие обновляет сумму за этот месяц.
+  document.getElementById('savePercent').addEventListener('click',()=>{const selected=monthInput.value;const items=state.transactions.filter(x=>x.date.slice(0,7)===selected);const balance=items.reduce((sum,x)=>sum+(x.type==='income'?x.amount:-x.amount),0);if(balance<=0){showToast('За выбранный месяц нет положительного остатка');return;}const contribution=Math.round(balance*0.3*100)/100;const contributions=state.goal.autoContributions&&typeof state.goal.autoContributions==='object'?state.goal.autoContributions:{};const previous=Number(contributions[selected])||0;state.goal.name=state.goal.name||'Накопления';state.goal.saved=Math.max(0,(Number(state.goal.saved)||0)-previous+contribution);contributions[selected]=contribution;state.goal.autoContributions=contributions;persist();render();showToast('В накопления внесено '+money(contribution));});
+  goalForm.addEventListener('submit',event=>{event.preventDefault();const name=document.getElementById('goalNameInput').value.trim();const targetRaw=document.getElementById('goalAmountInput').value;const savedRaw=document.getElementById('goalSavedInput').value;const target=targetRaw.trim()===''?0:parseAmount(targetRaw);const saved=savedRaw.trim()===''?0:parseAmount(savedRaw);const error=document.getElementById('goalError');if(!name){error.textContent='Укажите название цели.';return;}if(!Number.isFinite(target)||target<0||!Number.isFinite(saved)||saved<0){error.textContent='Введите корректные неотрицательные суммы.';return;}state.goal={name,target,saved};persist();goalForm.hidden=true;error.textContent='';render();showToast('Цель сохранена');});
+  goalForm.addEventListener('input',()=>document.getElementById('goalError').textContent='');
+  document.getElementById('clearBtn').addEventListener('click',()=>{if(confirm('Удалить все доходы, расходы и цель накопления? Это действие нельзя отменить.')){localStorage.removeItem(KEY);state={transactions:[],goal:{name:'',target:0,saved:0}};render();showToast('Все данные очищены');}});
+  render();
+})();
+</script>
+</body>
+</html>
+
